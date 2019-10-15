@@ -1,14 +1,14 @@
 import { evaluate } from '../src/evaluate';
 
 describe(evaluate, () => {
-  it.skip('should fall back to returning a primitive numeric value', () => {
+  it('should fall back to returning a primitive numeric value', () => {
     const ast = { type: 'NumericLiteral', value: 2 };
 
     expect(evaluate(ast)).toBe(2);
   });
 
-  it.skip('should fall back to returning a primitive string value', () => {
-    const ast = { type: 'StringValue', value: 'Hello' };
+  it('should fall back to returning a primitive string value', () => {
+    const ast = { type: 'StringLiteral', value: 'Hello' };
 
     expect(evaluate(ast)).toBe('Hello');
   });

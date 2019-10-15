@@ -7,7 +7,7 @@ const {
   numericLiteralTokenCreator,
   stringLiteralTokenCreator,
   identifierTokenCreator,
-} = require('./token-helpers');
+} = require('./helpers/token-helpers');
 const { peek, pop } = require('./utilities');
 
 const parenthesize = tokens => {

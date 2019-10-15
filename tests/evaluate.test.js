@@ -13,7 +13,7 @@ describe(evaluate, () => {
     expect(evaluate(ast)).toBe('Hello');
   });
 
-  it.skip('should be able to evaluate a single expression', () => {
+  it('should be able to evaluate a single expression', () => {
     const ast = {
       type: 'CallExpression',
       name: 'add',
@@ -28,7 +28,7 @@ describe(evaluate, () => {
     expect(result).toBe(5);
   });
 
-  it.skip('should be able to evaluate a nested expression', () => {
+  it('should be able to evaluate a nested expression', () => {
     const ast = {
       type: 'CallExpression',
       name: 'add',
@@ -51,12 +51,12 @@ describe(evaluate, () => {
     expect(result).toBe(6);
   });
 
-  it.skip('should be able to lookup identifiers in the environment', () => {
+  it('should be able to lookup identifiers in the environment', () => {
     const ast = { type: 'Identifier', name: 'pi' };
     expect(evaluate(ast)).toBe(Math.PI);
   });
 
-  it.skip('should be able to highest number in a range', () => {
+  it('should be able to highest number in a range', () => {
     const ast = {
       type: 'CallExpression',
       name: 'max',

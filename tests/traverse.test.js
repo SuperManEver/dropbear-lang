@@ -66,11 +66,17 @@ describe(traverse, () => {
     };
 
     const visitor = {
-      enter({ node }) {
-        if (node.name === '+') {
-          node.name = 'add';
-        }
+      CallExpression: {
+        enter({ node }) {
+          if (node.name === '+') {
+            node.name = 'add';
+          }
+        },
       },
     };
+
+    traverse(ast, visitor);
+
+    expect(ast.name).toBe('add');
   });
 });

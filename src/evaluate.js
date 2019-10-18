@@ -22,7 +22,15 @@ const getIdentifier = node => {
   throw new ReferenceError(`${node.name} is not defined`);
 };
 
+const define = node => {
+  environment[node.identifier.name] = node.assingment.value;
+};
+
 const evaluate = node => {
+  if (node.type === 'VariableDeclaration') {
+    return define(node);
+  }
+
   if (isNumericNode(node) || isStringNode(node)) {
     return node.value;
   }

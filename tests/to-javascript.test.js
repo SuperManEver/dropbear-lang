@@ -21,4 +21,20 @@ describe(toJavaScript, () => {
 
     expect(toJavaScript(ast).code).toBe('add(2, 3, subtract(5, 4))');
   });
+
+  it('should support variables', () => {
+    const ast = {
+      type: 'VariableDeclaration',
+      identifier: {
+        type: 'Identifier',
+        name: 'x',
+      },
+      assingment: {
+        type: 'NumericLiteral',
+        value: 10,
+      },
+    };
+
+    expect(toJavaScript(ast).code).toBe('let x = 10;');
+  });
 });

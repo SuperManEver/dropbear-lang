@@ -10,6 +10,26 @@ const babelVisitor = {
       };
     },
   },
+
+  VariableDeclaration: {
+    enter({ node }) {
+      node.type = 'VariableDeclaration';
+      node.kind = 'let';
+      node.declarations = [
+        {
+          type: 'VariableDeclarator',
+          id: {
+            type: 'Identifier',
+            name: node.identifier.name,
+          },
+          init: {
+            type: node.assingment.type,
+            value: node.assingment.value,
+          },
+        },
+      ];
+    },
+  },
 };
 
 const toJavaScript = ast => {
